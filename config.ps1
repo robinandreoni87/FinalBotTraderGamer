@@ -1,5 +1,5 @@
-# === ROBIN TRADER: UNIVERSAL CONFIGURATION ===
-# Centralized logic for authentication, persistence, and file paths.
+# === UNIVERSAL GITHUB CONFIGURATION ===
+# Handles auto-initialization, persistence, and relative paths.
 
 $global:BASE_URL   = "https://ai4trade.ai/api"
 $global:TOKEN_FILE = "$PSScriptRoot\.token"
@@ -16,16 +16,16 @@ $global:PATH_DATA_MARKET   = "$PSScriptRoot\data_market.json"
 $global:PATH_DATA_BANS     = "$PSScriptRoot\data_blacklist.json"
 $global:PATH_RAW_REPORTS   = "$PSScriptRoot\data_raw_reports.txt"
 
-# --- Utility: Random Identity Generator ---
-function Get-IdentityName {
+# Realistic Identity Generator (6 letters + 2 numbers)
+function Get-RealisticName {
     $letters = "abcdefghijklmnopqrstuvwxyz"
     $nums = "0123456789"
-    $lStr = -join ($letters.ToCharArray() | Get-Random -Count 8)
+    $lStr = -join ($letters.ToCharArray() | Get-Random -Count 6)
     $nStr = -join ($nums.ToCharArray() | Get-Random -Count 2)
     return "Trader_$($lStr)$($nStr)"
 }
 
-# --- Utility: Self-Initialization ---
+# Self-Initialization with Persistence
 function Invoke-AutoInit {
     if (Test-Path $global:TOKEN_FILE) {
         $existingToken = Get-Content $global:TOKEN_FILE -Raw
@@ -36,7 +36,7 @@ function Invoke-AutoInit {
     }
 
     Write-Host "[INIT] No account found. Generating new GOLD identity..." -ForegroundColor Cyan
-    $name  = Get-IdentityName
+    $name  = Get-RealisticName
     $email = "$name@ai4trade.github"
     $pass  = "Pass_$(Get-Random -Minimum 1000 -Maximum 9999)!"
 
@@ -46,19 +46,20 @@ function Invoke-AutoInit {
         if ($res.token) {
             $res.token | Out-File -FilePath $global:TOKEN_FILE -NoNewline -Encoding utf8
             $regBody   | Out-File -FilePath $global:CRED_FILE  -Encoding utf8
-            Write-Host "[SUCCESS] New Identity: $name ($email)" -ForegroundColor Green
+            Write-Host "[SUCCESS] New Identity: $name" -ForegroundColor Green
             return $res.token
         }
     } catch {
         Write-Host "[ERROR] Registration failed: $($_.Exception.Message)" -ForegroundColor Red
         return $null
     }
+    return $null
 }
 
-# --- Global State ---
+# Load Global Token
 $global:TOKEN = Invoke-AutoInit
 
-# --- Utility: Session Refresh ---
+# Session Refresh
 function Update-Session {
     if (Test-Path $global:CRED_FILE) {
         $creds = Get-Content $global:CRED_FILE | ConvertFrom-Json
@@ -74,7 +75,7 @@ function Update-Session {
     return $null
 }
 
-# --- Utility: Sound Feedback ---
+# Sound Feedback
 function Invoke-Alert {
     param([int]$freq=800, [int]$dur=200)
     try { [Console]::Beep($freq, $dur) } catch {}

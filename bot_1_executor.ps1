@@ -28,11 +28,42 @@ function Get-Positions {
     catch { if ($_.Exception.Response.StatusCode -eq "Unauthorized") { $global:TOKEN = Update-Session }; return $null }
 }
 
+function Invoke-TradeSell {
+    param([string]$symbol, [string]$market, [double]$qty, [double]$price, [double]$pnl)
+    $headers = @{ Authorization = "Bearer $global:TOKEN" }
+    $body = @{ market=$market; action="sell"; symbol=$symbol; price=$null; quantity=$qty; executed_at="now" } | ConvertTo-Json
+    try {
+        Invoke-RestMethod -Uri "$($global:BASE_URL)/signals/realtime" -Method Post -Body $body -Headers $headers -ContentType "application/json"
+        Write-Log -msg "EXIT: $symbol at $price (PnL: $pnl)" -color "Yellow"
+    } catch { Write-Log -msg "ERROR: Failed to sell $symbol" -color "Red" }
+}
+
 # === MAIN LOOP ===
 Write-Log -msg "Bot 1 (Executor) ONLINE" -color "Yellow"
 while ($true) {
     try {
+        Write-Log -msg "--- Scan ---" -color "Gray"
         $data = Get-Positions
+        if ($data -and $data.positions) {
+            foreach ($pos in $data.positions) {
+                $symbol=$pos.symbol; $entry=$pos.entry_price; $current=$pos.current_price; $qty=$pos.quantity
+                if ($entry -gt 0 -and $current -gt 0 -and $qty -gt 0) {
+                    $pnl = ($current - $entry) / $entry
+                    if (-not $script:peakPnl.ContainsKey($symbol) -or $pnl -gt $script:peakPnl[$symbol]) { $script:peakPnl[$symbol] = $pnl }
+                    
+                    if ($pnl -ge $TARGET_MAX) {
+                        Invoke-TradeSell -symbol $symbol -market $pos.market -qty $qty -price $current -pnl $pnl
+                    } elseif ($pnl -ge $TARGET_MIN) {
+                        $peak = $script:peakPnl[$symbol]; $drop = $peak - $pnl
+                        if ($drop -ge $TRAIL_BUFFER) {
+                            Invoke-TradeSell -symbol $symbol -market $pos.market -qty $qty -price $current -pnl $pnl
+                        }
+                    }
+                }
+            }
+        }
+
+        # Auto-Invest Logic
         if ($data -and ($data.cash -gt ($RESERVE + $BUY_AMOUNT))) {
             $target = $null
             if (Test-Path $global:PATH_DATA_STRATEGY) {
@@ -50,38 +81,31 @@ while ($true) {
                     $m = if ($target.market) { $target.market } else { "crypto" }
                     
                     $price = 0
-                    # 1. Try Realtime
                     try {
                         $resP = Invoke-RestMethod -Uri "$($global:BASE_URL)/signals/realtime?symbol=$s" -Method Get -Headers @{ Authorization="Bearer $global:TOKEN" }
                         $price = $resP.price
                     } catch {
-                        # 2. Try Feed Fallback (with STRICT symbol check)
                         try {
                             $feed = Invoke-RestMethod -Uri "$($global:BASE_URL)/signals/feed?limit=20"
                             $match = $feed.signals | Where-Object { $_.symbol -eq $s } | Select-Object -First 1
-                            if ($match.entry_price) { $price = $match.entry_price }
-                            elseif ($match.current_price) { $price = $match.current_price }
+                            $price = if ($match.entry_price) { $match.entry_price } else { $match.current_price }
                         } catch { }
                     }
 
-                    # 3. Execution
                     if ($price -gt 0) {
                         $qty = if ($m -match "stock") { [Math]::Floor($BUY_AMOUNT / $price) } else { [Math]::Round($BUY_AMOUNT / $price, 2) }
                         if ($qty -gt 0) {
-                            # We send price = $null to let the server execute at Market Price (safer)
                             $body = @{ market=$m; action="buy"; symbol=$s; price=$null; quantity=$qty; executed_at="now" } | ConvertTo-Json
-                            Write-Log -msg "EXECUTION: Buying $qty $s (Ref Price: $price)" -color "Green"
+                            Write-Log -msg "EXECUTION: Buying $qty $s" -color "Green"
                             try {
                                 Invoke-RestMethod -Uri "$($global:BASE_URL)/signals/realtime" -Method Post -Body $body -Headers @{ Authorization="Bearer $global:TOKEN" } -ContentType "application/json"
-                                Write-Log -msg "SUCCESS: Order placed for $s" -color "Green"
+                                Write-Log -msg "SUCCESS: Order placed" -color "Green"
                             } catch { Write-Log -msg "TRADE ERROR: $($_.Exception.Message)" -color "Red" }
                         }
-                    } else {
-                        Write-Log -msg "SKIPPED: No reliable price for $s. Waiting for next sync." -color "Gray"
                     }
                 }
             }
         }
-    } catch { Write-Log -msg "Loop Warning: $($_.Exception.Message)" -color "Red" }
+    } catch { Write-Log -msg "CYCLE WARNING: $($_.Exception.Message)" -color "Red" }
     Start-Sleep -Seconds 15
 }

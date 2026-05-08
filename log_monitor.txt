@@ -1,8 +1,0 @@
-﻿[2026-05-08 18:11:15] EXECUTION: Buying 0.06 BTC (Ref Price: 79585.0)
-[2026-05-08 18:11:18] TRADE ERROR: Errore del server remoto: (422) Unprocessable Entity.
-[2026-05-08 18:11:36] EXECUTION: Buying 0.06 BTC (Ref Price: 79585.0)
-[2026-05-08 18:11:37] TRADE ERROR: Errore del server remoto: (422) Unprocessable Entity.
-[2026-05-08 18:11:53] EXECUTION: Buying 0.06 BTC (Ref Price: 79585.0)
-[2026-05-08 18:11:55] TRADE ERROR: Errore del server remoto: (422) Unprocessable Entity.
-[2026-05-08 18:12:12] EXECUTION: Buying 0.06 BTC (Ref Price: 79585.0)
-[2026-05-08 18:12:12] TRADE ERROR: Errore del server remoto: (422) Unprocessable Entity.
