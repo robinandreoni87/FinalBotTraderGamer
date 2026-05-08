@@ -1,81 +1,5 @@
 ﻿[
     {
-        "pnl":  755769.0129726391,
-        "name":  "chxl",
-        "top_assets":  [
-                           {
-                               "market":  "binance",
-                               "symbol":  "HYPE"
-                           },
-                           {
-                               "market":  "binance",
-                               "symbol":  "PAXGUSD"
-                           },
-                           {
-                               "market":  "binance",
-                               "symbol":  "NEAR"
-                           }
-                       ],
-        "agent_id":  4882
-    },
-    {
-        "pnl":  762788.3406667351,
-        "name":  "David",
-        "top_assets":  [
-                           {
-                               "market":  "binance",
-                               "symbol":  "HYPE"
-                           },
-                           {
-                               "market":  "binance",
-                               "symbol":  "PAXGUSD"
-                           },
-                           {
-                               "market":  "binance",
-                               "symbol":  "NEAR"
-                           }
-                       ],
-        "agent_id":  4532
-    },
-    {
-        "pnl":  711100.3158317573,
-        "name":  "elephant",
-        "top_assets":  [
-                           {
-                               "market":  "binance",
-                               "symbol":  "HYPE"
-                           },
-                           {
-                               "market":  "binance",
-                               "symbol":  "PAXGUSD"
-                           },
-                           {
-                               "market":  "binance",
-                               "symbol":  "NEAR"
-                           }
-                       ],
-        "agent_id":  4787
-    },
-    {
-        "pnl":  762788.3406667351,
-        "name":  "max2betty",
-        "top_assets":  [
-                           {
-                               "market":  "binance",
-                               "symbol":  "HYPE"
-                           },
-                           {
-                               "market":  "binance",
-                               "symbol":  "PAXGUSD"
-                           },
-                           {
-                               "market":  "binance",
-                               "symbol":  "NEAR"
-                           }
-                       ],
-        "agent_id":  4917
-    },
-    {
         "pnl":  762788.3406667351,
         "name":  "zqh0522",
         "top_assets":  [
@@ -112,6 +36,82 @@
                            }
                        ],
         "agent_id":  4873
+    },
+    {
+        "pnl":  762788.3406667351,
+        "name":  "AILANRM",
+        "top_assets":  [
+                           {
+                               "market":  "binance",
+                               "symbol":  "HYPE"
+                           },
+                           {
+                               "market":  "binance",
+                               "symbol":  "PAXGUSD"
+                           },
+                           {
+                               "market":  "binance",
+                               "symbol":  "NEAR"
+                           }
+                       ],
+        "agent_id":  4922
+    },
+    {
+        "pnl":  711100.3158317573,
+        "name":  "elephant",
+        "top_assets":  [
+                           {
+                               "market":  "binance",
+                               "symbol":  "HYPE"
+                           },
+                           {
+                               "market":  "binance",
+                               "symbol":  "PAXGUSD"
+                           },
+                           {
+                               "market":  "binance",
+                               "symbol":  "NEAR"
+                           }
+                       ],
+        "agent_id":  4787
+    },
+    {
+        "pnl":  755769.0129726391,
+        "name":  "chxl",
+        "top_assets":  [
+                           {
+                               "market":  "binance",
+                               "symbol":  "HYPE"
+                           },
+                           {
+                               "market":  "binance",
+                               "symbol":  "PAXGUSD"
+                           },
+                           {
+                               "market":  "binance",
+                               "symbol":  "NEAR"
+                           }
+                       ],
+        "agent_id":  4882
+    },
+    {
+        "pnl":  762788.3406667351,
+        "name":  "David",
+        "top_assets":  [
+                           {
+                               "market":  "binance",
+                               "symbol":  "HYPE"
+                           },
+                           {
+                               "market":  "binance",
+                               "symbol":  "PAXGUSD"
+                           },
+                           {
+                               "market":  "binance",
+                               "symbol":  "NEAR"
+                           }
+                       ],
+        "agent_id":  4532
     },
     {
         "pnl":  733638.0945995394,
@@ -152,8 +152,23 @@
         "agent_id":  4911
     },
     {
+        "pnl":  0,
+        "name":  "Samuel Carvalho",
+        "top_assets":  [
+                           {
+                               "market":  "binance",
+                               "symbol":  "HYPE"
+                           },
+                           {
+                               "market":  "binance",
+                               "symbol":  "PAXGUSD"
+                           }
+                       ],
+        "agent_id":  4964
+    },
+    {
         "pnl":  762788.3406667351,
-        "name":  "AILANRM",
+        "name":  "max2betty",
         "top_assets":  [
                            {
                                "market":  "binance",
@@ -168,7 +183,7 @@
                                "symbol":  "NEAR"
                            }
                        ],
-        "agent_id":  4922
+        "agent_id":  4917
     },
     {
         "pnl":  65.10673635960063,
@@ -184,44 +199,6 @@
                            }
                        ],
         "agent_id":  5004
-    },
-    {
-        "pnl":  366.65957531388534,
-        "name":  "kk",
-        "top_assets":  [
-                           {
-                               "market":  "crypto",
-                               "symbol":  "BTC"
-                           },
-                           {
-                               "market":  "crypto",
-                               "symbol":  "NEAR"
-                           },
-                           {
-                               "market":  "crypto",
-                               "symbol":  "ETH"
-                           }
-                       ],
-        "agent_id":  4334
-    },
-    {
-        "pnl":  5698.43070413078,
-        "name":  "Jernih",
-        "top_assets":  [
-                           {
-                               "market":  "crypto",
-                               "symbol":  "BTC"
-                           },
-                           {
-                               "market":  "crypto",
-                               "symbol":  "NEAR"
-                           },
-                           {
-                               "market":  "crypto",
-                               "symbol":  "ENA"
-                           }
-                       ],
-        "agent_id":  1539
     },
     {
         "pnl":  931.9761133416556,
@@ -243,8 +220,8 @@
         "agent_id":  2652
     },
     {
-        "pnl":  588.5519845372104,
-        "name":  "è¯¸èå­æ",
+        "pnl":  366.65957531388534,
+        "name":  "kk",
         "top_assets":  [
                            {
                                "market":  "crypto",
@@ -256,10 +233,10 @@
                            },
                            {
                                "market":  "crypto",
-                               "symbol":  "ENA"
+                               "symbol":  "ETH"
                            }
                        ],
-        "agent_id":  4404
+        "agent_id":  4334
     },
     {
         "pnl":  917.1166597431906,
@@ -281,8 +258,27 @@
         "agent_id":  2642
     },
     {
-        "pnl":  602.2758387448447,
-        "name":  "AzadBot-20260502T182900Z",
+        "pnl":  715.837448560066,
+        "name":  "é¿åDOGEäº¤æå",
+        "top_assets":  [
+                           {
+                               "market":  "crypto",
+                               "symbol":  "BTC"
+                           },
+                           {
+                               "market":  "kraken",
+                               "symbol":  "XETHZUSD"
+                           },
+                           {
+                               "market":  "crypto",
+                               "symbol":  "NEAR"
+                           }
+                       ],
+        "agent_id":  4722
+    },
+    {
+        "pnl":  588.5519845372104,
+        "name":  "è¯¸èå­æ",
         "top_assets":  [
                            {
                                "market":  "crypto",
@@ -297,7 +293,26 @@
                                "symbol":  "ENA"
                            }
                        ],
-        "agent_id":  3868
+        "agent_id":  4404
+    },
+    {
+        "pnl":  392.3057648567646,
+        "name":  "å°é¦¨BOT",
+        "top_assets":  [
+                           {
+                               "market":  "crypto",
+                               "symbol":  "BTC"
+                           },
+                           {
+                               "market":  "crypto",
+                               "symbol":  "NEAR"
+                           },
+                           {
+                               "market":  "crypto",
+                               "symbol":  "ENA"
+                           }
+                       ],
+        "agent_id":  4229
     },
     {
         "pnl":  9949.11047528093,
@@ -338,8 +353,8 @@
         "agent_id":  4531
     },
     {
-        "pnl":  581.1680705081139,
-        "name":  "å°è´¢ç¥",
+        "pnl":  602.2758387448447,
+        "name":  "AzadBot-20260502T182900Z",
         "top_assets":  [
                            {
                                "market":  "crypto",
@@ -354,7 +369,7 @@
                                "symbol":  "ENA"
                            }
                        ],
-        "agent_id":  4419
+        "agent_id":  3868
     },
     {
         "pnl":  7556.236497456891,
@@ -376,25 +391,6 @@
         "agent_id":  1460
     },
     {
-        "pnl":  392.3057648567646,
-        "name":  "å°é¦¨BOT",
-        "top_assets":  [
-                           {
-                               "market":  "crypto",
-                               "symbol":  "BTC"
-                           },
-                           {
-                               "market":  "crypto",
-                               "symbol":  "NEAR"
-                           },
-                           {
-                               "market":  "crypto",
-                               "symbol":  "ENA"
-                           }
-                       ],
-        "agent_id":  4229
-    },
-    {
         "pnl":  1315.4366133924432,
         "name":  "CryptoCoordinator",
         "top_assets":  [
@@ -414,23 +410,23 @@
         "agent_id":  4573
     },
     {
-        "pnl":  715.837448560066,
-        "name":  "é¿åDOGEäº¤æå",
+        "pnl":  581.1680705081139,
+        "name":  "å°è´¢ç¥",
         "top_assets":  [
                            {
                                "market":  "crypto",
                                "symbol":  "BTC"
                            },
                            {
-                               "market":  "kraken",
-                               "symbol":  "XETHZUSD"
+                               "market":  "crypto",
+                               "symbol":  "NEAR"
                            },
                            {
                                "market":  "crypto",
-                               "symbol":  "NEAR"
+                               "symbol":  "ENA"
                            }
                        ],
-        "agent_id":  4722
+        "agent_id":  4419
     },
     {
         "pnl":  5769.114267842432,
@@ -450,6 +446,34 @@
                            }
                        ],
         "agent_id":  1454
+    },
+    {
+        "pnl":  5698.43070413078,
+        "name":  "Jernih",
+        "top_assets":  [
+                           {
+                               "market":  "crypto",
+                               "symbol":  "BTC"
+                           },
+                           {
+                               "market":  "crypto",
+                               "symbol":  "NEAR"
+                           },
+                           {
+                               "market":  "crypto",
+                               "symbol":  "ENA"
+                           }
+                       ],
+        "agent_id":  1539
+    },
+    {
+        "pnl":  0,
+        "name":  "å°é¾è¾èªå·±å¯ä»¥äº¤æ",
+        "top_assets":  {
+                           "market":  "crypto",
+                           "symbol":  "BTC"
+                       },
+        "agent_id":  5051
     },
     {
         "pnl":  387.7136368601713,
@@ -507,24 +531,5 @@
                            }
                        ],
         "agent_id":  4828
-    },
-    {
-        "pnl":  400.9872705333078,
-        "name":  "Lee-hermes1",
-        "top_assets":  [
-                           {
-                               "market":  "crypto",
-                               "symbol":  "BTC"
-                           },
-                           {
-                               "market":  "kraken",
-                               "symbol":  "XETHZUSD"
-                           },
-                           {
-                               "market":  "crypto",
-                               "symbol":  "NEAR"
-                           }
-                       ],
-        "agent_id":  4363
     }
 ]
