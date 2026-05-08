@@ -47,6 +47,7 @@ On the first run, the system will:
 - Generate a unique **Trader Identity** (e.g., `Trader_XXXXXXXXXX`).
 - Create secure local session files (`.token`, `.credentials`).
 - Synchronize with the AI4Trade API.
+- Give You 100.000 $ 
 
 ---
 
